@@ -5,6 +5,7 @@
 <!-- Start Blog Section -->
 <div class="blog-section">
     <div class="container">
+        <a href="{% url 'blog_create' %}" class="btn btn-primary">Create</a>
         <div class="row">
             {% if blogs %}
             {% for blog in blogs %}
