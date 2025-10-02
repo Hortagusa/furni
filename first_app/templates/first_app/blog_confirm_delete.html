@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block body_block %}
+<div class="container mt-5">
+    <h2>Delete Blog</h2>
+    <p>Bạn có chắc chắn muốn xóa "{{ object.name }}" không?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Yes, delete</button>
+        <a href="{% url 'blog' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+
+<div class="untree_co-section product-section before-footer-section">
+    <div class="container">
+        <div class="row">
+            {% if shops %}
+            {% for shop in shops %}
+            <div class="col-12 col-md-4 col-lg-3 mb-5">
+                <a class="product-item" href="{% url 'shop_detail' pk=shop.pk %}">
+                    <img src="{{ shop.image }}" class="img-fluid product-thumbnail" style="height: 400px">
+                    <h3 class="product-title">{{ shop.name }}</h3>
+                    <strong class="product-price">{{ shop.price }}</strong>
+                    <span class="icon-cross">
+                                <img src="{% static 'images/cross.svg' %}" class="img-fluid">
+                            </span>
+                </a>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p>Không có sản phẩm nào.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
